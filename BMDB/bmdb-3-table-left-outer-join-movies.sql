@@ -1,4 +1,4 @@
--- 3 table inner join - movie title, movie year, actor name, role
+-- 3 table left outer join - movie title, movie year, actor name, role
 select title, year, firstname, lastname, role
 	from movie m
     left outer join credit
