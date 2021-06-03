@@ -1,11 +1,11 @@
 -- create and select the database
 use master;
 go
-DROP DATABASE IF EXISTS PrsDb;
+DROP DATABASE IF EXISTS Prs_db;
 go
-CREATE DATABASE PrsDb;
+CREATE DATABASE Prs_db;
 go
-USE PrsDb;
+USE Prs_db;
 go
 
 -- create User table
@@ -74,7 +74,7 @@ Create table LineItem (
 ID 				integer 			primary key identity(1,1),
 RequestID	 	integer 			not null,
 ProductID		integer				not null,
-Quantit			integer				not null,		
+Quantity		integer				not null,		
 Foreign Key (RequestID) references Request(ID),
 Foreign Key (ProductID) references Product(ID),
 Constraint req_pdt unique(requestid, productid)
@@ -120,9 +120,10 @@ INSERT INTO product (ID,VendorID,PartNumber,Name,Price,Unit,PhotoPath) VALUES (1
 INSERT INTO product (ID,VendorID,PartNumber,Name,Price,Unit,PhotoPath) VALUES (11,4, '940600' , 'Canon imageCLASS Copier (D530)' ,'99.99',NULL,NULL);
 INSERT INTO product (ID,VendorID,PartNumber,Name,Price,Unit,PhotoPath) VALUES (12,5, '228148' , 'Acer Aspire ATC-780A-UR12 Desktop Computer' ,'399.99',null, '/images/AcerAspireDesktop.jpg' );
 INSERT INTO product (ID,VendorID,PartNumber,Name,Price,Unit,PhotoPath) VALUES (13,5, '279364' , 'Lenovo IdeaCentre All-In-One Desktop' ,'349.99', null, '/images/LenovoIdeaCenter.jpg' )
+INSERT INTO product (ID,VendorID,PartNumber,Name,Price,Unit,PhotoPath) VALUES (14,5, '498790' , 'Logitech MK270 Wireless Keyboard and Mouse' ,'29.99',NULL,NULL);
 Set identity_insert product off;
 
 -- create a user and grant privileges to that user
-/*DROP USER IF EXISTS PrsDb_user@localhost;
-CREATE USER PrsDb_user@localhost IDENTIFIED 'sesame' ;
-GRANT SELECT, INSERT, DELETE, UPDATE ON prs.* TO PrsDb_user@localhost;*/
+/*DROP USER IF EXISTS Prs_db_user@localhost;
+CREATE USER Prs_db_user@localhost IDENTIFIED 'sesame' ;
+GRANT SELECT, INSERT, DELETE, UPDATE ON Prs_db.* TO Prs_db_user@localhost;*/
