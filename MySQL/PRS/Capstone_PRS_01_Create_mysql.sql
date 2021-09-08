@@ -44,7 +44,7 @@ DateNeeded		date				not null,
 DeliveryMode	varchar(25)			not null,
 Status			varchar(20)			not null default 'New',
 Total			decimal(10,2)		not null,
-SubmittedDate	timestamp			default 0 not null,
+SubmittedDate	timestamp			not null default current_timestamp,
 ReasonForRejection	varchar(100),
 Foreign Key (UserID) references User(ID)
 );
@@ -110,6 +110,6 @@ INSERT INTO product (ID,VendorID,PartNumber,Name,Price,Unit,PhotoPath) VALUES (1
 INSERT INTO product (ID,VendorID,PartNumber,Name,Price,Unit,PhotoPath) VALUES (14,5, '498790' , 'Logitech MK270 Wireless Keyboard and Mouse' ,'29.99',NULL,NULL);
 
 -- create a user and grant privileges to that user
-/*DROP USER IF EXISTS prs_user@localhost;
-CREATE USER prs_user@localhost IDENTIFIED 'sesame' ;
-GRANT SELECT, INSERT, DELETE, UPDATE ON prs.* TO prs_user@localhost;*/
+-- DROP USER IF EXISTS prs_user@localhost;
+CREATE USER prs_user@localhost IDENTIFIED BY 'sesame';
+GRANT SELECT, INSERT, DELETE, UPDATE ON prs.* TO prs_user@localhost;
